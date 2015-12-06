@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "input"
+            argument = "$SRCROOT/input/input"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
