@@ -61,9 +61,9 @@
         }
         if (numberOfType0 == 0 && numberOfType1 == 0) {
             [result appendString:@"0 "];
-        } else if (numberOfType0 > 0 && numberOfType1 == 0) {
+        } else if (numberOfType0 == 1 && numberOfType1 == 0) {
             [result appendString:@"0 "];
-        } else if ((numberOfType0 == 0 && numberOfType1 > 0)) {
+        } else if ((numberOfType0 == 0 && numberOfType1 == 1)) {
             [result appendString:@"1 "];
         } else {
             result = [NSMutableString stringWithFormat:@"Case #%ld: IMPOSSIBLE",_testId];
