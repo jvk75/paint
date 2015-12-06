@@ -7,11 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FileParser.h"
+#import "TestHandler.h"
+#import "Defines.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+
+        if ([[[NSProcessInfo processInfo] arguments] count] > 1) {
+            FileParser *fp = [FileParser new];
+            NSArray *tests = [fp parseFilePath:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];
+            if (tests != nil){
+                TestHandler *th = [TestHandler new];
+                [th createTestCases:tests];
+                //[th printMe]; // print all test details
+                [th runAllTests];
+            }
+        } else {
+            NSLog(@"Error: no input file specifed!");
+        }
     }
     return 0;
 }
