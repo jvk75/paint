@@ -20,8 +20,11 @@
     return self;
 }
 
+#ifdef DEBUG
 -(void)printMe
 {
     NSLog(@"     - color: %ld, type: %ld",_color,_type);
 }
+#endif 
+
 @end

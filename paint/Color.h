@@ -14,9 +14,10 @@
 @property (readonly) NSInteger color;
 @property (readonly) NSInteger type;
 
-// initializer
 -(id)initWithColor:(NSInteger)color andType:(NSInteger)type;
 
+#ifdef DEBUG
 -(void)printMe;
+#endif
 
 @end

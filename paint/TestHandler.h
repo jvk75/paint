@@ -14,15 +14,13 @@
 }
 @property (readonly) NSInteger numberOfTests;
 
-//initializer
 -(id)initWithTestCasesArray:(NSArray*)testCases;
-// create test cased from data
 -(void)createTestCases:(NSArray*)testCases;
-// run all cases
 -(void)runAllTests;
-// run sinlge test case with #
 -(void)runSingleTest:(NSInteger)testid;
 
+#ifdef DEBUG
 -(void)printMe;
+#endif
 
 @end

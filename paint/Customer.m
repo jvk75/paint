@@ -44,21 +44,35 @@
     return NO;
 }
 
+-(NSInteger)getColorType:(NSInteger)color
+{
+    return [(Color*)[_colors objectForKey:[NSNumber numberWithInteger:color]] type];
+}
+
 -(BOOL)hasColor:(NSInteger)color;
 {
     return [self hasColor:color withType:kNOTYPE];
 }
 
--(void)removeColor:(NSInteger)color
+-(void)removeColorWithObj:(NSNumber*)color
 {
-    [_colors removeObjectForKey:[NSNumber numberWithInteger:color]];
-    _numberOfColors = [_colors count];
+    [self removeColor:[color integerValue]];
 }
 
+-(void)removeColor:(NSInteger)color
+{
+    if ([_colors objectForKey:[NSNumber numberWithInteger:color]] != nil) {
+        [_colors removeObjectForKey:[NSNumber numberWithInteger:color]];
+        _numberOfColors = [_colors count];
+    }
+}
+
+#ifdef DEBUG
 -(void)printMe
 {
     NSLog(@"  - customer with colors:");
     [[_colors allValues] makeObjectsPerformSelector:@selector(printMe)];
 }
+#endif
 
 @end

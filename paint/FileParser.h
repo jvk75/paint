@@ -11,7 +11,6 @@
 
 @interface FileParser : NSObject
 
-// checks and parses file at filePath and returns file as array if all is good
 -(NSArray*)parseFilePath:(NSString*)filePath;
 
 @end

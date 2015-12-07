@@ -47,10 +47,12 @@
     }
 }
 
+#ifdef DEBUG
 -(void)printMe //debug method
 {
     NSLog(@"TestHandler with test:");
     [tests makeObjectsPerformSelector:@selector(printMe)];
 }
+#endif
 
 @end

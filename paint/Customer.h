@@ -15,16 +15,16 @@
 @property (readonly) NSMutableDictionary *colors;
 @property (readonly) NSInteger numberOfColors;
 
-// initializer
 -(id)initWithData:(NSString*)dataString;
 
-// true if customer has color (ignore type)
+-(NSInteger)getColorType:(NSInteger)color;
 -(BOOL)hasColor:(NSInteger)color;
-// true if customer has color with specified type
 -(BOOL)hasColor:(NSInteger)color withType:(NSInteger)type;
-//remove color from customer
 -(void)removeColor:(NSInteger)color;
+-(void)removeColorWithObj:(NSNumber*)color;
 
+#ifdef DEBUG
 -(void)printMe;
+#endif
 
 @end

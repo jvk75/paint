@@ -13,18 +13,17 @@
 {
     NSInteger colors;
     NSMutableArray *customers;
+    NSMutableDictionary *resultColors;
 }
 
 @property NSInteger testId;
 
-//initializer
 -(id)initWithTestId:(NSInteger)testid AndData:(NSArray*)dataArray;
-
-// create test data
 -(void)prepareTestWithData:(NSArray *)testDataArray;
-// run test
 -(NSString*)runTest;
 
+#ifdef DEBUG
 -(void)printMe;
+#endif
 
 @end

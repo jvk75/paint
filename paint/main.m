@@ -20,7 +20,9 @@ int main(int argc, const char * argv[]) {
             if (tests != nil){
                 TestHandler *th = [TestHandler new];
                 [th createTestCases:tests];
-                //[th printMe]; // print all test details
+                #ifdef DEBUG
+                [th printMe]; // print all test details
+                #endif   
                 [th runAllTests];
             }
         } else {
