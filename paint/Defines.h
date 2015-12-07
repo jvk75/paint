@@ -1,5 +1,12 @@
 // debug message
+#define DMSG(M)
+#ifdef DEBUG
 #define DMSG(M) NSLog(@"%@ -> %s:%d",M,__FILE__,__LINE__)
+#else
+#endif
+
+// Helper: NSInteger to NSNumber
+#define i2n(N) [NSNumber numberWithInteger:N]
 
 // for test handler
 #define kNUMBEROFCASESROW 0

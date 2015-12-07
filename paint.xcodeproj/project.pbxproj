@@ -11,7 +11,7 @@
 		49E9064C1C13400F000750DC /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E9064B1C13400F000750DC /* Color.m */; };
 		49E9064F1C13401E000750DC /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E9064E1C13401E000750DC /* Customer.m */; };
 		49E906571C1445C6000750DC /* FileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E906561C1445C6000750DC /* FileParser.m */; };
-		49E9065A1C1445EB000750DC /* TestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E906591C1445EB000750DC /* TestHandler.m */; };
+		49E9065A1C1445EB000750DC /* TestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E906591C1445EB000750DC /* TestRunner.m */; };
 		49E9065D1C1445FB000750DC /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E9065C1C1445FB000750DC /* TestCase.m */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +37,8 @@
 		49E906541C136CB3000750DC /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		49E906551C1445C6000750DC /* FileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileParser.h; sourceTree = "<group>"; };
 		49E906561C1445C6000750DC /* FileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileParser.m; sourceTree = "<group>"; };
-		49E906581C1445EB000750DC /* TestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHandler.h; sourceTree = "<group>"; };
-		49E906591C1445EB000750DC /* TestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHandler.m; sourceTree = "<group>"; };
+		49E906581C1445EB000750DC /* TestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRunner.h; sourceTree = "<group>"; };
+		49E906591C1445EB000750DC /* TestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRunner.m; sourceTree = "<group>"; };
 		49E9065B1C1445FB000750DC /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
 		49E9065C1C1445FB000750DC /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,9 +76,9 @@
 				49E906541C136CB3000750DC /* Defines.h */,
 				49E9065E1C1463F7000750DC /* Color */,
 				49E9065F1C146400000750DC /* Customer */,
-				49E906621C14641A000750DC /* FileParser */,
 				49E906601C146408000750DC /* TestCase */,
-				49E906611C14640F000750DC /* TestHandler */,
+				49E906611C14640F000750DC /* TestRunner */,
+				49E906621C14641A000750DC /* FileParser */,
 				49E906431C133FC9000750DC /* main.m */,
 			);
 			path = paint;
@@ -111,13 +111,13 @@
 			name = TestCase;
 			sourceTree = "<group>";
 		};
-		49E906611C14640F000750DC /* TestHandler */ = {
+		49E906611C14640F000750DC /* TestRunner */ = {
 			isa = PBXGroup;
 			children = (
-				49E906581C1445EB000750DC /* TestHandler.h */,
-				49E906591C1445EB000750DC /* TestHandler.m */,
+				49E906581C1445EB000750DC /* TestRunner.h */,
+				49E906591C1445EB000750DC /* TestRunner.m */,
 			);
-			name = TestHandler;
+			name = TestRunner;
 			sourceTree = "<group>";
 		};
 		49E906621C14641A000750DC /* FileParser */ = {
@@ -185,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E9065A1C1445EB000750DC /* TestHandler.m in Sources */,
+				49E9065A1C1445EB000750DC /* TestRunner.m in Sources */,
 				49E906441C133FC9000750DC /* main.m in Sources */,
 				49E9064F1C13401E000750DC /* Customer.m in Sources */,
 				49E906571C1445C6000750DC /* FileParser.m in Sources */,
@@ -309,6 +309,7 @@
 				49E906491C133FC9000750DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

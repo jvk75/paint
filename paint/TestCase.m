@@ -29,7 +29,7 @@
     NSInteger numberOfCustomers = [[testDataArray objectAtIndex:kNUMBEROFCUSTOMERSROW] integerValue];
     customers = [NSMutableArray new];
     for (NSInteger j = 0; j < numberOfCustomers; j++) {
-        Customer *cust = [[Customer alloc] initWithData:[testDataArray objectAtIndex:j+kFIRSTCUSTOMERDATAROW]];
+        Customer *cust = [[Customer alloc] initWithTestData:[testDataArray objectAtIndex:j+kFIRSTCUSTOMERDATAROW]];
         [customers addObject:cust];
     }
 }
@@ -43,7 +43,7 @@
         NSMutableArray *multiColorCustomer = [NSMutableArray new];
         for (NSInteger c = 0 ; c < numberOfCustomers; c++) {
             Customer *cust = [customers objectAtIndex:c];
-            if ([cust hasColor:col]) {
+            if ([cust hasColor:i2n(col)]) {
                 if ([cust numberOfColors] == 1) {
                     [singleColorCustomer addObject:cust];
                 } else {
@@ -55,33 +55,34 @@
             [resultColors setObject:@"0" forKey:[NSNumber numberWithInteger:col]];
             
         } else if ([singleColorCustomer count] == 1) { // only one customer for color
-            [resultColors setObject:[NSNumber numberWithInteger:[(Customer*)[singleColorCustomer firstObject] getColorType:col]] forKey:[NSNumber numberWithInteger:col]];
+            [resultColors setObject:[NSNumber numberWithInteger:[(Customer*)[singleColorCustomer firstObject] getColorType:i2n(col)]] forKey:i2n(col)];
             [customers removeObject:[singleColorCustomer firstObject]];
             if ([multiColorCustomer count] > 0) {
-                [multiColorCustomer makeObjectsPerformSelector:@selector(removeColorWithObj:) withObject:[NSNumber numberWithInteger:col]];
+                [multiColorCustomer makeObjectsPerformSelector:@selector(removeColor:) withObject:i2n(col)];
             }
             
         } else if ([singleColorCustomer count] > 1) {
-            [resultColors setObject:@"impossible" forKey:[NSNumber numberWithInteger:col]];
+            [resultColors removeAllObjects];
+            [resultColors setObject:@"IMPOSSIBLE" forKey:i2n(1)];
             break;
             
         } else {  // two or more wants the same color
-            [resultColors setObject:[NSString stringWithFormat:@"%ld",[[multiColorCustomer firstObject] getColorType:col]] forKey:[NSNumber numberWithInteger:col]];
+            [resultColors setObject:[NSString stringWithFormat:@"%ld",[[multiColorCustomer firstObject] getColorType:i2n(col)]] forKey:i2n(col)];
             [customers removeObject:[multiColorCustomer firstObject]];
-            [multiColorCustomer makeObjectsPerformSelector:@selector(removeColorWithObj:) withObject:[NSNumber numberWithInteger:col]];
+            [multiColorCustomer makeObjectsPerformSelector:@selector(removeColor:) withObject:i2n(col)];
         }
         
     }
     
-    return [self showResult];
+    return [self createResultString];
 }
 
--(NSString*)showResult
+-(NSString*)createResultString
 {
     NSMutableString *result = [NSMutableString stringWithString:@""];
     for (NSInteger i = 1; i < colors+1; i++) {
         if ([resultColors objectForKey:[NSNumber numberWithInteger:i]] != nil) {
-            [result appendFormat:@"%@",[resultColors objectForKey:[NSNumber numberWithInteger:i]]];
+            [result appendFormat:@"%@ ",[resultColors objectForKey:[NSNumber numberWithInteger:i]]];
         }
     }
     return [NSString stringWithFormat:@"Case #%ld: %@",_testId,result];

@@ -1,15 +1,15 @@
 //
-//  TestHandler.m
+//  TestRunner.m
 //  paint
 //
 //  Created by Jari Kalinainen on 06.12.15.
 //  Copyright © 2015 Jari Kalinainen. All rights reserved.
 //
 
-#import "TestHandler.h"
+#import "TestRunner.h"
 #import "TestCase.h"
 
-@implementation TestHandler
+@implementation TestRunner
 
 -(id)initWithTestCasesArray:(NSArray*)testCases
 {
@@ -31,19 +31,19 @@
     
 }
 
--(void)runAllTests // and print result
+-(void)runAllTests
 {
     for (NSInteger i = 0; i < _numberOfTests; i++) {
-        NSLog(@"%@",[[tests objectAtIndex:i] runTest]);
+        [self runSingleTest:i];
     }
 }
 
 -(void)runSingleTest:(NSInteger)testid
 {
-    if ([tests objectAtIndex:testid] != nil) {
+    if ([tests count] > testid) {
         NSLog(@"%@",[[tests objectAtIndex:testid] runTest]);
     } else {
-        NSLog(@"Error: Test #%ld not found!",testid);
+        NSLog(@"Error: Test case #%ld not found!",testid+1);
     }
 }
 

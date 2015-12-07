@@ -11,6 +11,6 @@
 
 @interface FileParser : NSObject
 
--(NSArray*)parseFilePath:(NSString*)filePath;
+-(NSArray*)getFileAsArrayFromPath:(NSString*)filePath;
 
 @end

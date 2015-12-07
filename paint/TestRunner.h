@@ -1,5 +1,5 @@
 //
-//  TestHandler.h
+//  TestRunner.h
 //  paint
 //
 //  Created by Jari Kalinainen on 06.12.15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TestHandler : NSObject
+@interface TestRunner : NSObject
 {
     NSMutableArray *tests;
 }

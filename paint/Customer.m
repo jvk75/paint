@@ -10,7 +10,7 @@
 
 @implementation Customer
 
--(id)initWithData:(NSString *)dataString
+-(id)initWithTestData:(NSString *)dataString
 {
     self = [super init];
     if (self) {
@@ -26,13 +26,13 @@
     return self;
 }
 
--(BOOL)hasColor:(NSInteger)color withType:(NSInteger)type
+-(BOOL)hasColor:(NSNumber*)color withType:(NSInteger)type
 {
-    if ([_colors objectForKey:[NSNumber numberWithInteger:color]] == nil) {
+    if ([_colors objectForKey:color] == nil) {
         return NO;
     } else {
         if (type < kNOTYPE) {
-            if ([(Color*)[_colors objectForKey:[NSNumber numberWithInteger:color]] type] == type) {
+            if ([(Color*)[_colors objectForKey:color] type] == type) {
                 return YES;
             } else {
                 return NO;
@@ -44,25 +44,21 @@
     return NO;
 }
 
--(NSInteger)getColorType:(NSInteger)color
+-(NSInteger)getColorType:(NSNumber*)color
 {
-    return [(Color*)[_colors objectForKey:[NSNumber numberWithInteger:color]] type];
+    return [(Color*)[_colors objectForKey:color] type];
 }
 
--(BOOL)hasColor:(NSInteger)color;
+-(BOOL)hasColor:(NSNumber*)color;
 {
     return [self hasColor:color withType:kNOTYPE];
 }
 
--(void)removeColorWithObj:(NSNumber*)color
-{
-    [self removeColor:[color integerValue]];
-}
 
--(void)removeColor:(NSInteger)color
+-(void)removeColor:(NSNumber*)color
 {
-    if ([_colors objectForKey:[NSNumber numberWithInteger:color]] != nil) {
-        [_colors removeObjectForKey:[NSNumber numberWithInteger:color]];
+    if ([_colors objectForKey:color] != nil) {
+        [_colors removeObjectForKey:color];
         _numberOfColors = [_colors count];
     }
 }

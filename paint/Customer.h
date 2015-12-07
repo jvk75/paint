@@ -15,13 +15,12 @@
 @property (readonly) NSMutableDictionary *colors;
 @property (readonly) NSInteger numberOfColors;
 
--(id)initWithData:(NSString*)dataString;
+-(id)initWithTestData:(NSString*)dataString;
 
--(NSInteger)getColorType:(NSInteger)color;
--(BOOL)hasColor:(NSInteger)color;
--(BOOL)hasColor:(NSInteger)color withType:(NSInteger)type;
--(void)removeColor:(NSInteger)color;
--(void)removeColorWithObj:(NSNumber*)color;
+-(NSInteger)getColorType:(NSNumber*)color;
+-(BOOL)hasColor:(NSNumber*)color;
+-(BOOL)hasColor:(NSNumber*)color withType:(NSInteger)type;
+-(void)removeColor:(NSNumber*)color;
 
 #ifdef DEBUG
 -(void)printMe;

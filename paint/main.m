@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FileParser.h"
-#import "TestHandler.h"
+#import "TestRunner.h"
 #import "Defines.h"
 
 int main(int argc, const char * argv[]) {
@@ -16,14 +16,14 @@ int main(int argc, const char * argv[]) {
 
         if ([[[NSProcessInfo processInfo] arguments] count] > 1) {
             FileParser *fp = [FileParser new];
-            NSArray *tests = [fp parseFilePath:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];
-            if (tests != nil){
-                TestHandler *th = [TestHandler new];
-                [th createTestCases:tests];
+            NSArray *testDataArray = [fp getFileAsArrayFromPath:[[[NSProcessInfo processInfo] arguments] objectAtIndex:1]];
+            if (testDataArray != nil){
+                TestRunner *tr = [TestRunner new];
+                [tr createTestCases:testDataArray];
                 #ifdef DEBUG
-                [th printMe]; // print all test details
+                [tr printMe]; // print all test details
                 #endif   
-                [th runAllTests];
+                [tr runAllTests];
             }
         } else {
             NSLog(@"Error: no input file specifed!");
